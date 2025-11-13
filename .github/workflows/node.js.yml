@@ -24,10 +24,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'pnpm'
 
-    - run: pnpm run build --if-present
+    - run: npm install -g pnpm
 
     - run: pnpm run lint
 
     - run: pnpm run type-check
+
+    - run: pnpm run build --if-present
 
     - run: pnpm test
